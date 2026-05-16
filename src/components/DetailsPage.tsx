@@ -14,7 +14,11 @@ export const DetailsPage: React.FC<DetailsPageProps> = ({ placeId, onBack }) => 
   useEffect(() => {
     const fetchDetails = async () => {
       try {
-        const API_BASE = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:8000' : '');
+        const isLocal = window.location.hostname === 'localhost' || 
+                       window.location.hostname === '127.0.0.1' || 
+                       window.location.hostname.startsWith('192.168.') || 
+                       window.location.hostname.startsWith('10.');
+        const API_BASE = import.meta.env.VITE_API_URL || (isLocal ? `http://${window.location.hostname}:8000` : '');
         const res = await fetch(`${API_BASE}/api/place/${placeId}`);
         if (!res.ok) throw new Error(`Server error: ${res.status}`);
         const json = await res.json();
