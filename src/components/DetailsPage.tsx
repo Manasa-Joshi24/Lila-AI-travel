@@ -14,7 +14,7 @@ export const DetailsPage: React.FC<DetailsPageProps> = ({ placeId, onBack }) => 
   useEffect(() => {
     const fetchDetails = async () => {
       try {
-        const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+        const API_BASE = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:8000' : '');
         const res = await fetch(`${API_BASE}/api/place/${placeId}`);
         if (!res.ok) throw new Error(`Server error: ${res.status}`);
         const json = await res.json();

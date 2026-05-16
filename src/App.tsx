@@ -25,7 +25,7 @@ export default function App() {
   const handleOnboardingComplete = async (payload: any) => {
     console.log('Final Preference Payload:', payload);
     setIsLoading(true);
-    const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+    const API_BASE = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:8000' : '');
     try {
       const response = await fetch(`${API_BASE}/api/recommendations`, {
         method: 'POST',
