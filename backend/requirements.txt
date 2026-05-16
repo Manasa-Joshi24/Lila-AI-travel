@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+pydantic
+python-dotenv
+langchain
+langchain-community
+langchain-google-genai
+langchain-groq
+chromadb
+sentence-transformers
+googlemaps
+requests
+pandas
+numpy
+math
+google-generativeai

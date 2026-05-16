@@ -1,0 +1,907 @@
+{
+  "dataset": "Bengaluru Places — RAG Model Dataset v2",
+  "schema": {
+    "dimensions": {
+      "who": ["Solo", "Friends", "Family", "Partner"],
+      "time": ["A few hours", "Day trip", "Weekend", "Week+"],
+      "vibe": ["Chill", "Adventure", "Romantic", "Educational", "Relaxation"]
+    },
+    "budget_levels": {
+      "Free": "No entry cost",
+      "Budget": "Under ₹300 per person",
+      "Moderate": "₹300–₹800 per person",
+      "Premium": "₹800–₹2000 per person",
+      "Luxury": "₹2000+ per person"
+    }
+  },
+  "places": [
+    {
+      "id": 1,
+      "name": "Dyu Art Cafe",
+      "place_id": "ChIJ80IECk8UrjsRqCffDjE09lw",
+      "address": "23, KHB MIG Colony, 1st Cross Rd, Koramangala 8th Block, Bengaluru",
+      "rating": 4.4,
+      "rating_count": 20743,
+      "hours": "10:00 AM – 10:30 PM (all days)",
+      "phone": "+91 96113 19774",
+      "latitude": 12.9374249,
+      "longitude": 77.6176566,
+      "budget": {
+        "level": "Moderate",
+        "range": "₹400–₹700 per person",
+        "notes": "Coffee ₹120–200, mains ₹250–400. Budget-friendly for a cafe experience."
+      },
+      "tags": {
+        "who": ["Solo", "Partner", "Friends"],
+        "time": ["A few hours"],
+        "vibe": ["Chill", "Relaxation"]
+      },
+      "description": "A bungalow-style cafe in Koramangala with Kerala-inspired architecture, art gallery walls, open courtyard, and a quiet, serene vibe. Perfect for slow afternoons, solo reading, or a peaceful date.",
+      "highlights": ["Art gallery walls", "Open courtyard", "Pet-friendly", "Good coffee and food"]
+    },
+    {
+      "id": 2,
+      "name": "Lalbagh Botanical Garden",
+      "place_id": "ChIJHdPykcEVrjsRIr4v35kLEY4",
+      "address": "Mavalli, Bengaluru, Karnataka 560004",
+      "rating": 4.4,
+      "rating_count": 174728,
+      "hours": "5:00 AM – 7:00 PM (all days)",
+      "phone": null,
+      "latitude": 12.9494158,
+      "longitude": 77.5846805,
+      "budget": {
+        "level": "Budget",
+        "range": "₹30 entry per person",
+        "notes": "Entry ₹30 for adults. Snacks inside ₹30–100. Cart ride ₹30–50."
+      },
+      "tags": {
+        "who": ["Solo", "Family", "Partner", "Friends"],
+        "time": ["A few hours", "Day trip"],
+        "vibe": ["Relaxation", "Chill", "Romantic"]
+      },
+      "description": "One of Bangalore's most iconic green spaces with rose gardens, bonsai garden, lotus pond, glass house, and a serene lake. Great for morning jogs, leisurely walks, and picnics.",
+      "highlights": ["Rose garden", "Glass House", "Bonsai garden", "Lake with sunset views", "Entry ₹30"]
+    },
+    {
+      "id": 3,
+      "name": "Cubbon Park (Sri Chamarajendra Park)",
+      "place_id": "ChIJL2fQ53MWrjsRuN9D6aalLMY",
+      "address": "Ambedkar Veedhi, Bengaluru, Karnataka 560001",
+      "rating": 4.4,
+      "rating_count": 142654,
+      "hours": "Tue–Sun 6:00 AM – 6:00 PM (Closed Monday)",
+      "phone": null,
+      "latitude": 12.9752487,
+      "longitude": 77.5928871,
+      "budget": {
+        "level": "Free",
+        "range": "₹0",
+        "notes": "Free entry. Toy train and boating ₹20–50 extra."
+      },
+      "tags": {
+        "who": ["Solo", "Family", "Friends"],
+        "time": ["A few hours"],
+        "vibe": ["Relaxation", "Chill"]
+      },
+      "description": "A large, well-maintained urban green space in the heart of Bengaluru, perfect for walking, jogging, cycling, and spending time outdoors. Has dedicated kids' play areas and a boating area.",
+      "highlights": ["Vast greenery", "Kids play area", "Cycling and jogging paths", "Free entry"]
+    },
+    {
+      "id": 4,
+      "name": "Visvesvaraya Industrial & Technological Museum",
+      "place_id": "ChIJqyoigt8VrjsRp_hKR5Y_1X8",
+      "address": "5216, Kasturba Rd, near Chinnaswamy Stadium, Bengaluru",
+      "rating": 4.6,
+      "rating_count": 16395,
+      "hours": "9:30 AM – 6:00 PM (all days)",
+      "phone": "+91 80 2286 6200",
+      "latitude": 12.9751593,
+      "longitude": 77.5964198,
+      "budget": {
+        "level": "Budget",
+        "range": "₹100 per person",
+        "notes": "Entry ₹100 adults, ₹35 students. 3D show or special exhibits ~₹50–80 extra."
+      },
+      "tags": {
+        "who": ["Family", "Solo", "Friends"],
+        "time": ["A few hours", "Day trip"],
+        "vibe": ["Educational"]
+      },
+      "description": "A 4-storey science and technology museum with interactive exhibits on physics, space, engineering, and India's industrial heritage. Fun and educational for all ages.",
+      "highlights": ["Interactive science exhibits", "3D show", "Solar system display", "In-house canteen", "Free parking"]
+    },
+    {
+      "id": 5,
+      "name": "Jawaharlal Nehru Planetarium",
+      "place_id": "ChIJH1ja7WsWrjsRNSg89ukafXU",
+      "address": "Sankey Rd, High Grounds, Bengaluru, Karnataka 560001",
+      "rating": 4.4,
+      "rating_count": 5143,
+      "hours": "Tue–Sun 10:00 AM – 5:30 PM (Closed Monday)",
+      "phone": "+91 80 2237 9725",
+      "latitude": 12.9848665,
+      "longitude": 77.5896341,
+      "budget": {
+        "level": "Budget",
+        "range": "₹80–₹150 per person",
+        "notes": "Science park ₹30. Sky show ₹80–150 by show type. Book on BookMyShow in advance."
+      },
+      "tags": {
+        "who": ["Family", "Solo", "Friends"],
+        "time": ["A few hours"],
+        "vibe": ["Educational"]
+      },
+      "description": "A planetarium with immersive dome shows about stars, planets, galaxies, and India's space achievements. Well-suited for students, curious minds, and families.",
+      "highlights": ["Sky dome projections", "Space show", "Science park", "Free parking"]
+    },
+    {
+      "id": 6,
+      "name": "Bengaluru Palace",
+      "place_id": "ChIJN1ZKKUkWrjsRzxIVM363-LE",
+      "address": "Bengaluru, Karnataka",
+      "rating": 4.2,
+      "rating_count": 98627,
+      "hours": "10:00 AM – 5:30 PM (all days)",
+      "phone": "+91 80 2235 2828",
+      "latitude": 13.0035068,
+      "longitude": 77.5890953,
+      "budget": {
+        "level": "Budget",
+        "range": "₹300 per person",
+        "notes": "Entry ₹300 for adults. Free audio guide with valid physical ID. No photography inside."
+      },
+      "tags": {
+        "who": ["Solo", "Family", "Partner"],
+        "time": ["A few hours"],
+        "vibe": ["Educational", "Romantic"]
+      },
+      "description": "A Tudor-style royal palace with ornate wooden interiors, carved details, and a free audio tour covering 20 points of interest.",
+      "highlights": ["Audio guide available", "Tudor architecture", "Historic royal rooms", "Gardens"]
+    },
+    {
+      "id": 7,
+      "name": "Tipu Sultan's Summer Palace",
+      "place_id": "ChIJAeY0tOQVrjsRdZ8hleP7aRo",
+      "address": "42, Tippu Sultan Palace Rd, Chamrajpet, Bengaluru",
+      "rating": 3.9,
+      "rating_count": 31897,
+      "hours": "8:30 AM – 5:30 PM (all days)",
+      "phone": null,
+      "latitude": 12.9593513,
+      "longitude": 77.5736415,
+      "budget": {
+        "level": "Budget",
+        "range": "₹15–₹25 per person",
+        "notes": "Entry ₹15 for Indian nationals. Very affordable heritage visit."
+      },
+      "tags": {
+        "who": ["Solo", "Friends"],
+        "time": ["A few hours"],
+        "vibe": ["Educational"]
+      },
+      "description": "An 18th-century Indo-Islamic palace built by Tipu Sultan with intricate teakwood carvings. Short but historically rich visit near KR Market.",
+      "highlights": ["Intricate woodwork", "Very affordable entry", "Historic Indo-Islamic architecture"]
+    },
+    {
+      "id": 8,
+      "name": "Bengaluru Fort",
+      "place_id": "ChIJVx06BOMVrjsR1-a9CQJZpLI",
+      "address": "Krishna Rajendra Rd, New Tharagupet, Bengaluru",
+      "rating": 4.0,
+      "rating_count": 26549,
+      "hours": "8:30 AM – 5:30 PM (all days)",
+      "phone": null,
+      "latitude": 12.9628018,
+      "longitude": 77.5758862,
+      "budget": {
+        "level": "Free",
+        "range": "₹0",
+        "notes": "No entry fee. 20–30 min visit. Best combined with KR Market nearby."
+      },
+      "tags": {
+        "who": ["Solo"],
+        "time": ["A few hours"],
+        "vibe": ["Educational", "Chill"]
+      },
+      "description": "A quiet remnant of old Bengaluru with stone walls, ancient gateways, and a small temple. No entry fee.",
+      "highlights": ["Free entry", "Peaceful atmosphere", "Kote Venkataramana Temple inside"]
+    },
+    {
+      "id": 9,
+      "name": "National Gallery of Modern Art (NGMA)",
+      "place_id": "ChIJqZQybIEWrjsRezNLL4Ju2Gk",
+      "address": "49, Palace Rd, Vasanth Nagar, Bengaluru",
+      "rating": 4.3,
+      "rating_count": 1823,
+      "hours": "Tue–Fri 10:00 AM – 6:00 PM | Sat–Sun 11:00 AM – 8:00 PM (Closed Monday)",
+      "phone": "+91 80 2234 2338",
+      "latitude": 12.9894116,
+      "longitude": 77.5880553,
+      "budget": {
+        "level": "Budget",
+        "range": "₹20 per person",
+        "notes": "Entry ₹20 for Indian nationals. One of the cheapest premium cultural experiences in Bengaluru."
+      },
+      "tags": {
+        "who": ["Solo", "Partner", "Friends"],
+        "time": ["A few hours"],
+        "vibe": ["Educational", "Chill", "Romantic"]
+      },
+      "description": "A heritage mansion housing modern and contemporary Indian art by Ravi Varma, Amrita Sher-Gil, MF Husain. Has a sculpture garden, cafe, and library.",
+      "highlights": ["Indian modern art collection", "Sculpture garden", "Cafe & library", "Entry ₹20"]
+    },
+    {
+      "id": 10,
+      "name": "Aquarium Paradise",
+      "place_id": "ChIJ_a5696kXrjsRlNpEVfIAmo8",
+      "address": "Jayamahal Main Rd, opposite TV Tower, J.C.Nagar, Bengaluru",
+      "rating": 4.5,
+      "rating_count": 6780,
+      "hours": "10:30 AM – 8:00 PM (all days)",
+      "phone": "+91 96063 11881",
+      "latitude": 13.0063949,
+      "longitude": 77.5920718,
+      "budget": {
+        "level": "Moderate",
+        "range": "₹449–₹499 per person",
+        "notes": "Adults ₹499, kids ₹449. Check website and District app for discounts. Plan 2–3 hours."
+      },
+      "tags": {
+        "who": ["Family", "Friends"],
+        "time": ["A few hours"],
+        "vibe": ["Educational", "Chill"]
+      },
+      "description": "A well-maintained private aquarium with exotic marine life, themed tanks, jellyfish section, and a mermaid show at 3 PM.",
+      "highlights": ["Jellyfish section", "Mermaid show at 3 PM", "Thematic tank murals", "Good for kids"]
+    },
+    {
+      "id": 11,
+      "name": "Namma Bengaluru Aquarium",
+      "place_id": "ChIJSXQE4HAWrjsRyeiku6FOYT4",
+      "address": "Kasturba Rd, Shanthala Nagar, Bengaluru",
+      "rating": 3.9,
+      "rating_count": 9674,
+      "hours": "Mon–Fri 11:00 AM – 8:00 PM | Sat–Sun 9:00 AM – 8:00 PM",
+      "phone": "+91 89717 92967",
+      "latitude": 12.9765148,
+      "longitude": 77.5985397,
+      "budget": {
+        "level": "Budget",
+        "range": "₹95–₹118 per person",
+        "notes": "Weekday ₹95, weekend ₹118. One of the most affordable aquarium experiences in India."
+      },
+      "tags": {
+        "who": ["Family", "Friends"],
+        "time": ["A few hours"],
+        "vibe": ["Educational"]
+      },
+      "description": "India's second-largest public aquarium inside Cubbon Park with 70+ species, a tunnel tank, coral reefs, koi pond, and feeding sessions.",
+      "highlights": ["Koi fish pond", "Tunnel tank", "Coral reef display", "Feeding sessions"]
+    },
+    {
+      "id": 12,
+      "name": "Snow City Bengaluru",
+      "place_id": "ChIJNcKzmE4WrjsRW2a7MA-1Zrs",
+      "address": "Fun World Complex, 1st Floor, Jayamahal Main Rd, J.C.Nagar, Bengaluru",
+      "rating": 4.1,
+      "rating_count": 22156,
+      "hours": "10:00 AM – 8:00 PM (all days)",
+      "phone": "+91 78295 50000",
+      "latitude": 13.0057596,
+      "longitude": 77.5920609,
+      "budget": {
+        "level": "Moderate",
+        "range": "₹650 weekdays | ₹750 weekends",
+        "notes": "45-min session. Jacket, shoes, gloves provided. Unlimited slot ₹1200 — not recommended, 30 mins in snow is plenty."
+      },
+      "tags": {
+        "who": ["Family", "Friends", "Partner"],
+        "time": ["A few hours"],
+        "vibe": ["Adventure", "Chill"]
+      },
+      "description": "A sub-zero indoor snow experience with slides, igloos, snow play areas, glass bridge, and hot momos inside. Jackets and snow boots provided.",
+      "highlights": ["Snow slides", "Igloo", "Glass bridge walk", "Hot momos inside", "Gear provided"]
+    },
+    {
+      "id": 13,
+      "name": "Eyelusion Bangalore",
+      "place_id": "ChIJAdVdsDAXrjsRITtBG5iL2C0",
+      "address": "Snowcity, Fun World Complex, Jayamahal Main Rd, Bengaluru",
+      "rating": 4.8,
+      "rating_count": 9029,
+      "hours": "10:00 AM – 7:30 PM (all days)",
+      "phone": "+91 78295 50000",
+      "latitude": 13.0062264,
+      "longitude": 77.5919552,
+      "budget": {
+        "level": "Moderate",
+        "range": "₹500 per person",
+        "notes": "Entry ₹500. Finishable in under 1 hour. Best as a couple or with friends for photos."
+      },
+      "tags": {
+        "who": ["Friends", "Partner", "Family"],
+        "time": ["A few hours"],
+        "vibe": ["Chill", "Adventure"]
+      },
+      "description": "An interactive optical illusion and AR art museum where painted walls create 3D photo effects. Mirror maze included.",
+      "highlights": ["Optical illusion art", "AR zones", "Mirror maze", "Staff-assisted photography"]
+    },
+    {
+      "id": 14,
+      "name": "Loco Bear - The Ultimate Entertainment Hub",
+      "place_id": "ChIJQ1XqWTYVrjsR5b-exOFv8Wc",
+      "address": "Jakkasandra Extension, Koramangala, Bengaluru",
+      "rating": 4.7,
+      "rating_count": 12094,
+      "hours": "10:30 AM – 11:00 PM (all days)",
+      "phone": "+91 96635 55661",
+      "latitude": 12.9273936,
+      "longitude": 77.6402395,
+      "budget": {
+        "level": "Premium",
+        "range": "₹800–₹1500 per person",
+        "notes": "Activities priced individually. Go-kart ~₹300, bowling ~₹250/game, laser tag ~₹250. Budget ₹1000–1500 for a full session."
+      },
+      "tags": {
+        "who": ["Friends", "Family"],
+        "time": ["A few hours", "Day trip"],
+        "vibe": ["Adventure"]
+      },
+      "description": "A large indoor entertainment hub with go-karting, bowling, laser tag, VR, trampoline zone, arcade games, and shooting range. One-stop fun for groups.",
+      "highlights": ["Go-karting", "Laser tag", "Bowling", "VR arcade", "Trampoline park", "Food court"]
+    },
+    {
+      "id": 15,
+      "name": "Dirt Mania Outdoor Adventures",
+      "place_id": "ChIJ4WuLpuVDrjsRrIzn4rK_naA",
+      "address": "Bengaluru, Karnataka 562109",
+      "rating": 4.8,
+      "rating_count": 1753,
+      "hours": "8:00 AM – 8:00 PM (Mon–Thu) | 8:00 AM – 10:00 PM (Fri–Sun)",
+      "phone": "+91 88802 60270",
+      "latitude": 12.7713699,
+      "longitude": 77.4695903,
+      "budget": {
+        "level": "Premium",
+        "range": "₹1000–₹2000 per person",
+        "notes": "6 km trail ~₹1000, 12 km trail ~₹1800. Price varies by bike type."
+      },
+      "tags": {
+        "who": ["Friends", "Partner", "Solo"],
+        "time": ["Day trip"],
+        "vibe": ["Adventure"]
+      },
+      "description": "ATV quad biking on rugged off-road trails with 6 km and 12 km packages. Trained instructors, safety briefing included. Best near sunset.",
+      "highlights": ["ATV quad biking", "6 km & 12 km trails", "Safety training", "Scenic off-road views"]
+    },
+    {
+      "id": 16,
+      "name": "escape2explore",
+      "place_id": "ChIJxwq3yh0_rjsRLt8rN6RbSOc",
+      "address": "Rajarajeshwari Nagar, Bengaluru",
+      "rating": 4.7,
+      "rating_count": 8631,
+      "hours": "Open 24 hours (treks are scheduled events)",
+      "phone": "+91 98864 21211",
+      "latitude": 12.920675,
+      "longitude": 77.5176012,
+      "budget": {
+        "level": "Moderate",
+        "range": "₹700–₹2500 per person",
+        "notes": "Day trips ₹700–₹1200. Weekend treks with stay ₹1500–₹2500. Includes transport, stay, food."
+      },
+      "tags": {
+        "who": ["Friends", "Solo"],
+        "time": ["Weekend", "Week+"],
+        "vibe": ["Adventure"]
+      },
+      "description": "A trekking and adventure travel company offering treks to Kumar Parvatha, Netravati, Nandi Hills, and Adiyogi day tours. Includes homestay stays, bonfire, and group travel.",
+      "highlights": ["Treks: Kumar Parvatha, Netravati", "Nandi Hills day tour", "Adiyogi visit", "Campfire & group activities"]
+    },
+    {
+      "id": 17,
+      "name": "Rocksport Bengaluru",
+      "place_id": "ChIJXyupl2dDrjsR76q3zwfVNFA",
+      "address": "Kanakapura Main Rd, near Bolare, Bengaluru",
+      "rating": 4.6,
+      "rating_count": 653,
+      "hours": "Open 24 hours",
+      "phone": "+91 90242 00200",
+      "latitude": 12.752555,
+      "longitude": 77.4923972,
+      "budget": {
+        "level": "Moderate",
+        "range": "₹1200–₹2000 per person",
+        "notes": "Weekend overnight packages with activities, stay, and meals included."
+      },
+      "tags": {
+        "who": ["Friends", "Family"],
+        "time": ["Weekend"],
+        "vibe": ["Adventure", "Relaxation"]
+      },
+      "description": "An outdoor resort near Bengaluru offering tent stays, campfire, rain dance, rope activities, and group games. Budget-friendly for school groups and corporate outings.",
+      "highlights": ["Tent stay", "Campfire", "Rain dance", "Rope activities", "Affordable pricing"]
+    },
+    {
+      "id": 18,
+      "name": "Bannerghatta Nature Camp – Jungle Lodges",
+      "place_id": "ChIJJzVeCONBrjsRkO3ENRBSAQk",
+      "address": "Bannerghatta Biological Park, Bengaluru",
+      "rating": 4.5,
+      "rating_count": 2123,
+      "hours": "Open 24 hours (resort)",
+      "phone": "+91 99000 54227",
+      "latitude": 12.7972878,
+      "longitude": 77.5610967,
+      "budget": {
+        "level": "Premium",
+        "range": "₹5000–₹9000 per person (2D/1N)",
+        "notes": "Package includes accommodation, safari, all meals, and nature walk. Book via Jungle Lodges & Resorts official website."
+      },
+      "tags": {
+        "who": ["Family", "Partner", "Friends"],
+        "time": ["Weekend"],
+        "vibe": ["Adventure", "Relaxation", "Educational"]
+      },
+      "description": "A jungle lodge inside Bannerghatta Biological Park offering safari tours, nature walks, wildlife spotting (lions, tigers, leopards, elephants), bonfire evenings, and wooden cottage stays.",
+      "highlights": ["Safari tours", "Nature walks with naturalist", "Wildlife sightings", "Bonfire evenings", "Wooden cottage stay"]
+    },
+    {
+      "id": 19,
+      "name": "Bugle Rock Park",
+      "place_id": "ChIJmwJpvowVrjsR0JVGQxxLHms",
+      "address": "Bull Temple Rd, Basavanagudi, Bengaluru",
+      "rating": 4.5,
+      "rating_count": 25709,
+      "hours": "5:30–10:00 AM | 4:00–8:30 PM (all days)",
+      "phone": null,
+      "latitude": 12.9427052,
+      "longitude": 77.5694287,
+      "budget": {
+        "level": "Free",
+        "range": "₹0",
+        "notes": "Completely free. Located next to the free-to-visit Bull Temple and Dodda Ganapathi Temple."
+      },
+      "tags": {
+        "who": ["Solo", "Partner", "Friends"],
+        "time": ["A few hours"],
+        "vibe": ["Relaxation", "Chill"]
+      },
+      "description": "A beautiful park around 3,000-million-year-old rock formations in Basavanagudi. Adjacent to the Dodda Ganapathi and Bull Temple. Quiet and perfect for an evening walk.",
+      "highlights": ["Ancient geological rocks", "Adjacent to Bull Temple", "Free entry", "Peaceful walks"]
+    },
+    {
+      "id": 20,
+      "name": "Just BLR",
+      "place_id": "ChIJOT7dpH8XrjsRmhbquGl7xz0",
+      "address": "Brigade Rd, Ashok Nagar, Bengaluru",
+      "rating": 4.7,
+      "rating_count": 25156,
+      "hours": "11:00 AM – 1:00 AM (all days)",
+      "phone": "+91 94296 90754",
+      "latitude": 12.9732755,
+      "longitude": 77.6073169,
+      "budget": {
+        "level": "Moderate",
+        "range": "₹600–₹1000 per person",
+        "notes": "Food ₹250–500 per dish. Mocktails ₹200–350. Budget ₹800–1000 for a full evening."
+      },
+      "tags": {
+        "who": ["Friends", "Partner"],
+        "time": ["A few hours"],
+        "vibe": ["Chill", "Romantic"]
+      },
+      "description": "A popular bar and grill on Brigade Road with live music, vibrant atmosphere, and a wide menu. Great for evenings out with friends or a casual date night.",
+      "highlights": ["Live music performances", "Brigade Road location", "Wide food & drinks menu", "Late night open"]
+    },
+    {
+      "id": 21,
+      "name": "The 13th Floor",
+      "place_id": "ChIJXZGjsn0WrjsRcqfimwGhocs",
+      "address": "84, MG Road, Shanthala Nagar, Bengaluru",
+      "rating": 4.3,
+      "rating_count": 10626,
+      "hours": "12:00 PM – 12:00 AM (Mon–Thu, Sun) | 12:00 PM – 12:30 AM (Fri–Sat)",
+      "phone": "+91 80 4178 3355",
+      "latitude": 12.9753223,
+      "longitude": 77.6050521,
+      "budget": {
+        "level": "Premium",
+        "range": "₹1000–₹1800 per person",
+        "notes": "Cocktails ₹400–600, mains ₹350–600. Budget ₹1200–1500 for food + drinks. No cover charge."
+      },
+      "tags": {
+        "who": ["Partner", "Friends"],
+        "time": ["A few hours"],
+        "vibe": ["Romantic", "Chill"]
+      },
+      "description": "A rooftop bar on MG Road with stunning panoramic city views, especially at sunset. Great cocktails, good food, vibrant music.",
+      "highlights": ["Panoramic city view", "Rooftop setting", "Sunset views", "Cocktails & good food"]
+    },
+    {
+      "id": 22,
+      "name": "Olive Beach",
+      "place_id": "ChIJ03xVrSoUrjsRfYzAUhym4eY",
+      "address": "16, Wood St, Ashok Nagar, Bengaluru",
+      "rating": 4.5,
+      "rating_count": 8030,
+      "hours": "12:00 PM – 3:45 PM | 7:00 PM – 12:00 AM (extended on weekends)",
+      "phone": "+91 86554 79735",
+      "latitude": 12.966892,
+      "longitude": 77.6080844,
+      "budget": {
+        "level": "Luxury",
+        "range": "₹2000–₹3500 per person",
+        "notes": "Mains ₹600–1200, starters ₹400–800. Advance booking recommended for patio seating."
+      },
+      "tags": {
+        "who": ["Partner"],
+        "time": ["A few hours"],
+        "vibe": ["Romantic"]
+      },
+      "description": "An upscale Mediterranean restaurant with indoor and patio seating, serene ambience, and fine food. Best for romantic dinners.",
+      "highlights": ["Mediterranean cuisine", "Quiet patio seating", "Valet parking", "Upscale romantic ambience"]
+    },
+    {
+      "id": 23,
+      "name": "Farmlore",
+      "place_id": "ChIJH1j-ke8ZrjsR157H5DoLZhE",
+      "address": "Survey No:67, Sathnur Village, Bagalur, Bengaluru",
+      "rating": 4.7,
+      "rating_count": 1398,
+      "hours": "Wed–Sun: 12:30–2:30 PM | 6:30–10:00 PM (Closed Mon–Tue)",
+      "phone": "+91 80502 48469",
+      "latitude": 13.1273276,
+      "longitude": 77.6393523,
+      "budget": {
+        "level": "Luxury",
+        "range": "₹6000–₹10000 per person",
+        "notes": "5-course ~₹5000, 10-course degustation ~₹8000 per person. Reservation mandatory."
+      },
+      "tags": {
+        "who": ["Partner", "Friends"],
+        "time": ["Day trip"],
+        "vibe": ["Romantic", "Relaxation"]
+      },
+      "description": "One of Bengaluru's top fine dining restaurants offering 5–10 course degustation menus on a farm on the city's outskirts. Creative seasonal menus and exceptional service.",
+      "highlights": ["Degustation tasting menu", "Farm-to-table concept", "Premium fine dining", "Seasonal themed menus"]
+    },
+    {
+      "id": 24,
+      "name": "The Hole In The Wall Cafe",
+      "place_id": "ChIJy9Ry9GcUrjsRlAT3TuW94lE",
+      "address": "3, 8th Main Rd, 4th Block, Koramangala, Bengaluru",
+      "rating": 4.3,
+      "rating_count": 20659,
+      "hours": "Tue–Sun 8:00 AM – 8:45 PM (Closed Monday)",
+      "phone": "+91 99456 92562",
+      "latitude": 12.9347054,
+      "longitude": 77.6256024,
+      "budget": {
+        "level": "Moderate",
+        "range": "₹400–₹700 per person",
+        "notes": "English breakfast ₹350–500. Coffee ₹150–200. Generous portions, great value for the quality."
+      },
+      "tags": {
+        "who": ["Solo", "Friends", "Partner"],
+        "time": ["A few hours"],
+        "vibe": ["Chill"]
+      },
+      "description": "An iconic Bangalore cafe known for English breakfasts, cozy bookshelves, and memorabilia-filled interiors. Best for slow mornings.",
+      "highlights": ["English breakfast", "Cozy bookshelves", "Iconic Bangalore cafe", "Vintage interiors"]
+    },
+    {
+      "id": 25,
+      "name": "Vels Jollywood Studios and Adventure",
+      "place_id": "ChIJqfDSFDJHrjsRF561ZWptw_k",
+      "address": "Bidadi, Karnataka 562109",
+      "rating": 3.8,
+      "rating_count": 5605,
+      "hours": "10:45 AM – 7:30 PM (all days)",
+      "phone": "+91 70096 77009",
+      "latitude": 12.7789752,
+      "longitude": 77.4149217,
+      "budget": {
+        "level": "Moderate",
+        "range": "₹600–₹900 per person",
+        "notes": "All-inclusive ticket covers most rides and 5D movie. Check website for combos and offers."
+      },
+      "tags": {
+        "who": ["Family"],
+        "time": ["Day trip"],
+        "vibe": ["Adventure", "Educational"]
+      },
+      "description": "A themed amusement park near Bengaluru with dinosaur park, water rides, 5D movie, Titanic replica, glow garden, and mirror maze. Ideal for families.",
+      "highlights": ["Dinosaur park", "Water park & wave pool", "5D movie (free)", "Titanic replica", "Glow garden"]
+    },
+    {
+      "id": 26,
+      "name": "CURIOUSCITY Science Center",
+      "place_id": "ChIJh1Z3D8wNrjsRNdNCe4zJy8U",
+      "address": "Kachamaranahalli, Bengaluru (Whitefield area)",
+      "rating": 4.6,
+      "rating_count": 1543,
+      "hours": "Sat–Sun 10:00 AM – 5:00 PM only",
+      "phone": "+91 83174 12923",
+      "latitude": 12.8913125,
+      "longitude": 77.7459375,
+      "budget": {
+        "level": "Moderate",
+        "range": "₹400–₹600 per child",
+        "notes": "Weekend-only. Book online in advance. Ideal for ages 8+."
+      },
+      "tags": {
+        "who": ["Family"],
+        "time": ["A few hours"],
+        "vibe": ["Educational"]
+      },
+      "description": "A hands-on science center open only on weekends with themed rooms on physics, plasma balls, Tesla coils, and escape rooms. Best for school-age children (8+).",
+      "highlights": ["Hands-on science exhibits", "Dark room: plasma & Tesla coil", "Escape room", "Weekend only"]
+    },
+    {
+      "id": 27,
+      "name": "Jaya Prakash Narayana (JP) Park",
+      "place_id": "ChIJ-8Jcp109rjsRe0QXmcbU8Ic",
+      "address": "Tank Bund Road, Mathikere, Bengaluru",
+      "rating": 4.3,
+      "rating_count": 23863,
+      "hours": "5:00 AM – 9:00 PM (all days, 8 PM on Sundays)",
+      "phone": null,
+      "latitude": 13.0343719,
+      "longitude": 77.55081,
+      "budget": {
+        "level": "Free",
+        "range": "₹0",
+        "notes": "Free entry. Toy train and activities inside ₹20–50 extra."
+      },
+      "tags": {
+        "who": ["Family", "Solo", "Friends"],
+        "time": ["A few hours"],
+        "vibe": ["Relaxation", "Chill"]
+      },
+      "description": "One of Bengaluru's largest parks with a lake, musical fountain, swimming pool, toy train, gym equipment, and kids' play area.",
+      "highlights": ["Musical fountain", "Lake views", "Toy train track", "Free entry", "Open gym"]
+    },
+    {
+      "id": 28,
+      "name": "M.N. Krishna Rao Park",
+      "place_id": "ChIJ4zqO6ZIVrjsRSwuhJweaVJY",
+      "address": "Dewan Madhava Rao Rd, Basavanagudi, Bengaluru",
+      "rating": 4.5,
+      "rating_count": 14064,
+      "hours": "5:00 AM – 12:00 PM | 3:00–9:00 PM (all days)",
+      "phone": null,
+      "latitude": 12.9418183,
+      "longitude": 77.5752478,
+      "budget": {
+        "level": "Free",
+        "range": "₹0",
+        "notes": "Completely free. Healthy street food right outside ₹50–150."
+      },
+      "tags": {
+        "who": ["Solo", "Family"],
+        "time": ["A few hours"],
+        "vibe": ["Relaxation"]
+      },
+      "description": "A densely tree-lined park in Basavanagudi with running tracks, badminton and basketball courts, kids play area, and open gym.",
+      "highlights": ["Jogging track", "Badminton & basketball courts", "Open gym", "Free entry", "Very green & cool"]
+    },
+    {
+      "id": 29,
+      "name": "Trippy Goat Cafe",
+      "place_id": "ChIJibah5rEXrjsRBqh68oiwMcM",
+      "address": "MG Road, opposite East Parade Church, Ashok Nagar, Bengaluru",
+      "rating": 4.3,
+      "rating_count": 914,
+      "hours": "Mon–Fri 10:30 AM – 11:30 PM | Sat–Sun 9:00 AM – 11:30 PM",
+      "phone": "+91 97316 55707",
+      "latitude": 12.972712,
+      "longitude": 77.6147820,
+      "budget": {
+        "level": "Premium",
+        "range": "₹800–₹1500 per person",
+        "notes": "Lamb chops ~₹600, bone marrow ~₹700. Cocktails ₹400–600. Premium pricing for creative dishes."
+      },
+      "tags": {
+        "who": ["Partner", "Friends"],
+        "time": ["A few hours"],
+        "vibe": ["Chill", "Romantic"]
+      },
+      "description": "A chic cafe on MG Road with outdoor seating and a creative menu including lamb chops, bone marrow, and cocktails. Pet-friendly.",
+      "highlights": ["Lamb chops & bone marrow", "Pet-friendly", "Outdoor seating", "MG Road location"]
+    },
+    {
+      "id": 30,
+      "name": "Wonderla Amusement Park",
+      "place_id": "ChIJW3Or_8dHrjsROESo0OikUl4",
+      "address": "28th km, Mysore Rd, Bengaluru, Karnataka 562109",
+      "rating": 4.5,
+      "rating_count": 114036,
+      "hours": "Mon–Fri 11:00 AM – 6:00 PM | Sat–Sun 11:00 AM – 7:00 PM",
+      "phone": "+91 80 3507 3966",
+      "latitude": 12.8350367,
+      "longitude": 77.4008244,
+      "budget": {
+        "level": "Moderate",
+        "range": "₹900–₹1800 per person",
+        "notes": "Regular ticket ₹900–1200. Fast Track ₹1400–1800. Book on BookMyShow for discounts. Food inside ₹200–400 extra. Fast Track highly recommended on weekends."
+      },
+      "tags": {
+        "who": ["Friends", "Family"],
+        "time": ["Day trip"],
+        "vibe": ["Adventure"]
+      },
+      "description": "Bengaluru's most popular amusement and water park on Mysore Road with 60+ land and water rides. Standout rides: Recoil and Mission Interstellar. A full day is needed to cover everything. 30 km from the city.",
+      "highlights": ["60+ land and water rides", "Recoil & Mission Interstellar", "Wave pool", "Fast Track passes available", "30 km from city on Mysore Road"]
+    },
+    {
+      "id": 31,
+      "name": "Fun World Amusement Park",
+      "place_id": "ChIJLxh4XLUXrjsRZiRoXxUVbdQ",
+      "address": "Palace Grounds, Jayamahal Main Rd, J.C.Nagar, Bengaluru",
+      "rating": 4.1,
+      "rating_count": 13019,
+      "hours": "10:00 AM – 7:00 PM (all days)",
+      "phone": "+91 84311 10000",
+      "latitude": 13.0069448,
+      "longitude": 77.5920976,
+      "budget": {
+        "level": "Moderate",
+        "range": "₹400–₹700 per person",
+        "notes": "Cheaper and less crowded than Wonderla. Combo tickets for dry rides + water park available. Inside the city."
+      },
+      "tags": {
+        "who": ["Family", "Friends"],
+        "time": ["Day trip", "A few hours"],
+        "vibe": ["Adventure"]
+      },
+      "description": "A city-based amusement and water park inside Palace Grounds, JC Nagar. Affordable, less crowded, and close to Snow City and Aquarium Paradise in the same complex.",
+      "highlights": ["City-based — no long drive needed", "Water park + dry rides combo", "Affordable vs Wonderla", "Aquarium & Snow City nearby", "Less crowded on weekdays"]
+    },
+    {
+      "id": 32,
+      "name": "Phoenix Marketcity",
+      "place_id": "ChIJS76jBAsRrjsRQ5Yuqy0l-88",
+      "address": "Whitefield Main Road, Mahadevapura, Bengaluru",
+      "rating": 4.5,
+      "rating_count": 188207,
+      "hours": "10:00 AM – 10:00 PM (all days)",
+      "phone": "+91 80 4962 6111",
+      "latitude": 12.9957867,
+      "longitude": 77.6964011,
+      "budget": {
+        "level": "Moderate",
+        "range": "₹500–₹2000+ per person (variable)",
+        "notes": "Free entry. Food court ₹200–400. PVR movies ₹200–350. Shopping is as much as you want to spend."
+      },
+      "tags": {
+        "who": ["Friends", "Family", "Partner"],
+        "time": ["A few hours", "Day trip"],
+        "vibe": ["Chill", "Relaxation"]
+      },
+      "description": "One of Bengaluru's largest premium malls in Whitefield with 200+ brands, PVR cinema, diverse food court, Kids' Looft play zone, and seasonal events. A full-day shopping and entertainment destination.",
+      "highlights": ["200+ brands", "PVR Cinemas", "Premium food court", "Kids' Looft play zone", "Seasonal events"]
+    },
+    {
+      "id": 33,
+      "name": "UB City",
+      "place_id": "ChIJ96tpUHcWrjsRit-gsot2OOE",
+      "address": "24, Vittal Mallya Rd, Ashok Nagar, Bengaluru",
+      "rating": 4.5,
+      "rating_count": 68473,
+      "hours": "11:00 AM – 11:00 PM (Mon–Thu, Sun) | 11:00 AM – 12:00 AM (Fri–Sat)",
+      "phone": "+91 97316 00994",
+      "latitude": 12.9716428,
+      "longitude": 77.5959367,
+      "budget": {
+        "level": "Luxury",
+        "range": "₹2000–₹5000+ per person",
+        "notes": "India's first luxury mall. Brands like LV, Gucci, Apple. Dining at Toscano or High Ultra Lounge ₹2000–4000 per person. Just walking around is free and great for photos."
+      },
+      "tags": {
+        "who": ["Partner", "Friends"],
+        "time": ["A few hours"],
+        "vibe": ["Romantic", "Chill"]
+      },
+      "description": "India's first luxury mall with Italian Renaissance architecture, luxury brand boutiques (Louis Vuitton, Gucci, Apple), fine dining, a rooftop lounge, art gallery, and serene walkways. Bengaluru's most upscale social destination.",
+      "highlights": ["Luxury brands: LV, Gucci, Apple", "High Ultra Lounge rooftop", "Art gallery (Sublime Galleria)", "European-style architecture", "Great photo spot"]
+    },
+    {
+      "id": 34,
+      "name": "Orion Mall",
+      "place_id": "ChIJZ0FegEs9rjsRZFR-C-hVwqQ",
+      "address": "Dr Rajkumar Rd, Rajajinagar, Bengaluru",
+      "rating": 4.5,
+      "rating_count": 196655,
+      "hours": "10:00 AM – 11:00 PM (all days)",
+      "phone": "+91 80672 82222",
+      "latitude": 13.011023,
+      "longitude": 77.5547152,
+      "budget": {
+        "level": "Moderate",
+        "range": "₹400–₹1500 per person",
+        "notes": "Free entry. Food court ₹200–400. PVR & 4D theatre ₹200–350. Boating outside ₹100. Metro-accessible."
+      },
+      "tags": {
+        "who": ["Family", "Friends", "Partner"],
+        "time": ["A few hours", "Day trip"],
+        "vibe": ["Chill", "Relaxation"]
+      },
+      "description": "One of Bengaluru's most-visited malls in Rajajinagar with a lake-view exterior, boating, diverse food court, PVR multiplex, Timezone gaming zone, and 4D theatre. Metro accessible.",
+      "highlights": ["Lake view & boating outside", "PVR + 4D theatre", "Timezone gaming zone", "Metro: Sandal Soap Factory", "ISKCON Temple nearby"]
+    },
+    {
+      "id": 35,
+      "name": "Nexus Mall Koramangala (Forum Mall)",
+      "place_id": "ChIJuzGXhU0UrjsRCRsq7sQj5Xs",
+      "address": "Hosur Rd, Koramangala, Bengaluru",
+      "rating": 4.4,
+      "rating_count": 139067,
+      "hours": "10:00 AM – 10:00 PM (all days)",
+      "phone": "+91 80 2206 7803",
+      "latitude": 12.934692,
+      "longitude": 77.6111212,
+      "budget": {
+        "level": "Moderate",
+        "range": "₹400–₹1200 per person",
+        "notes": "Free entry. Meals ₹200–500. PVR INOX is one of the best screens in Koramangala."
+      },
+      "tags": {
+        "who": ["Friends", "Family", "Partner"],
+        "time": ["A few hours"],
+        "vibe": ["Chill"]
+      },
+      "description": "A beloved Bengaluru landmark in Koramangala (originally Forum Mall) with major brands, one of the city's best PVR INOX screens, diverse food options, and frequent pop-up local/handloom stalls.",
+      "highlights": ["PVR INOX (best in area)", "Diverse food options", "Koramangala landmark", "Pop-up handloom stalls", "Casual hangout favourite"]
+    },
+    {
+      "id": 36,
+      "name": "VR Bengaluru",
+      "place_id": "ChIJtV2JQAsRrjsRp4HCbaob4R0",
+      "address": "Whitefield Main Road, Mahadevapura, Bengaluru",
+      "rating": 4.4,
+      "rating_count": 68389,
+      "hours": "9:00 AM – 11:00 PM (all days)",
+      "phone": "+91 96634 67772",
+      "latitude": 12.9962927,
+      "longitude": 77.6953702,
+      "budget": {
+        "level": "Moderate",
+        "range": "₹400–₹1200 per person",
+        "notes": "Free entry. PVR IMAX ₹300–450. Stores: H&M, Zudio, LuLu Hypermarket. Less crowded than adjacent Phoenix Marketcity."
+      },
+      "tags": {
+        "who": ["Friends", "Family"],
+        "time": ["A few hours"],
+        "vibe": ["Chill", "Relaxation"]
+      },
+      "description": "A spacious and relatively quiet mall next to Phoenix Marketcity in Whitefield with PVR IMAX, H&M, Zudio, LuLu Hypermarket, Cult.fit, and an adventure climbing zone.",
+      "highlights": ["PVR IMAX screen", "LuLu Hypermarket", "Less crowded than Phoenix", "Adventure climbing zone", "Metro: Singayyanapalya"]
+    },
+    {
+      "id": 37,
+      "name": "Elements Mall",
+      "place_id": "ChIJxTyv4WgXrjsRiqVsTY7LFBk",
+      "address": "Thanisandra Main Rd, Nagavara, Bengaluru",
+      "rating": 4.1,
+      "rating_count": 61577,
+      "hours": "10:00 AM – 10:00 PM (all days)",
+      "phone": "+91 80672 94444",
+      "latitude": 13.0451659,
+      "longitude": 77.6267139,
+      "budget": {
+        "level": "Budget",
+        "range": "₹200–₹800 per person",
+        "notes": "Free entry. Smaller, quieter mall. Good food court. PVR available. Best for north Bengaluru near Manyata Tech Park."
+      },
+      "tags": {
+        "who": ["Family", "Friends"],
+        "time": ["A few hours"],
+        "vibe": ["Chill", "Relaxation"]
+      },
+      "description": "A calm, less-crowded mall near Manyata Tech Park in north Bengaluru with a good food court, PVR cinema, and supermarket. Best for a quick easy outing without the rush of bigger malls.",
+      "highlights": ["Quiet and uncrowded", "Good food court", "PVR cinema", "Near Manyata Tech Park", "Supermarket inside"]
+    }
+  ]
+}
