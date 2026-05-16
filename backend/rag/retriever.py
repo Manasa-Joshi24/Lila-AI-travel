@@ -3,6 +3,7 @@ import json
 import math
 import logging
 from typing import List, Dict, Any
+# pyrefly: ignore [missing-import]
 from langchain_core.documents import Document
 from langchain_community.vectorstores import Chroma
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
@@ -16,9 +17,16 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 class LilaRetriever:
-    def __init__(self, dataset_path: str, persist_directory: str = "./chroma_db"):
+    def __init__(self, dataset_path: str, persist_directory: str = None):
         self.dataset_path = dataset_path
-        self.persist_directory = persist_directory
+        
+        # Use /tmp for ChromaDB on Vercel because the filesystem is read-only
+        if persist_directory:
+            self.persist_directory = persist_directory
+        elif os.getenv("VERCEL"):
+            self.persist_directory = "/tmp/chroma_db"
+        else:
+            self.persist_directory = "./chroma_db"
         
         api_key = os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY")
         if not api_key or "your_google_api_key" in api_key.lower():

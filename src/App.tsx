@@ -25,18 +25,20 @@ export default function App() {
   const handleOnboardingComplete = async (payload: any) => {
     console.log('Final Preference Payload:', payload);
     setIsLoading(true);
+    const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
     try {
-      const response = await fetch('http://localhost:8000/api/recommendations', {
+      const response = await fetch(`${API_BASE}/api/recommendations`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
+      if (!response.ok) throw new Error(`Server error: ${response.status}`);
       const data = await response.json();
       setRecommendations(data.recommendations);
       setView('suggestions');
-    } catch (error) {
+    } catch (error: any) {
       console.error('API Error:', error);
-      alert('Backend connection failed. Please ensure the FastAPI server is running on port 8000.');
+      alert(`Backend connection failed: ${error.message || 'Unknown error'}. Ensure the FastAPI server is running on ${import.meta.env.VITE_API_URL || 'http://localhost:8000'}`);
       setView('landing');
     } finally {
       setIsLoading(false);
