@@ -1,6 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowLeft, MapPin, Star, Clock, Sparkles, Navigation, Globe, Phone, ExternalLink, Thermometer, Droplets, Wind, Hotel, Info } from 'lucide-react';
+import { MapContainer, TileLayer, Marker } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+
+// Fix for Leaflet marker icons in Vite/Webpack
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+
+delete (L.Icon.Default.prototype as any)._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconUrl: markerIcon,
+  iconRetinaUrl: markerIcon2x,
+  shadowUrl: markerShadow,
+});
 
 interface DetailsPageProps {
   placeId: string;
@@ -14,7 +29,11 @@ export const DetailsPage: React.FC<DetailsPageProps> = ({ placeId, onBack }) => 
   useEffect(() => {
     const fetchDetails = async () => {
       try {
-        const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+        const isLocal = window.location.hostname === 'localhost' || 
+                       window.location.hostname === '127.0.0.1' || 
+                       window.location.hostname.startsWith('192.168.') || 
+                       window.location.hostname.startsWith('10.');
+        const API_BASE = import.meta.env.VITE_API_URL || (isLocal ? `http://${window.location.hostname}:8000` : '');
         const res = await fetch(`${API_BASE}/api/place/${placeId}`);
         if (!res.ok) throw new Error(`Server error: ${res.status}`);
         const json = await res.json();
@@ -256,17 +275,26 @@ export const DetailsPage: React.FC<DetailsPageProps> = ({ placeId, onBack }) => 
                </div>
             </div>
 
-            {/* Map Placeholder */}
-            <div className="aspect-square rounded-[2.5rem] bg-white/5 border border-white/10 overflow-hidden relative group">
-               <iframe
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                loading="lazy"
-                allowFullScreen
-                referrerPolicy="no-referrer-when-downgrade"
-                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyD3o2dvWk3IFZlFsx8yPJvBPTstMhK2y5E&q=${place.location?.lat ?? 0},${place.location?.lng ?? 0}&zoom=15`}
-               ></iframe>
+            <div className="aspect-square rounded-[2.5rem] bg-white/5 border border-white/10 overflow-hidden relative group z-0">
+               {(place.location?.lat && place.location?.lng) ? (
+                 <MapContainer 
+                   center={[place.location.lat, place.location.lng]} 
+                   zoom={15} 
+                   scrollWheelZoom={false}
+                   style={{ height: "100%", width: "100%" }}
+                 >
+                   <TileLayer
+                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                   />
+                   <Marker position={[place.location.lat, place.location.lng]} />
+                 </MapContainer>
+               ) : (
+                 <div className="w-full h-full flex flex-col items-center justify-center text-on-surface/50">
+                    <MapPin size={32} className="mb-2 opacity-50" />
+                    <span className="text-xs font-bold uppercase tracking-widest">Location Unavailable</span>
+                 </div>
+               )}
             </div>
           </div>
         </div>

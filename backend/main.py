@@ -5,7 +5,7 @@ from typing import List, Optional, Dict, Any
 import os
 import logging
 from rag.retriever import LilaRetriever, calculate_weighted_score, haversine
-from services.enrichment import get_weather, get_nearby_hotels, get_nearby_attractions
+from services.enrichment import get_weather, get_nearby_hotels, get_nearby_attractions, get_place_image
 from services.ai import generate_ai_summary
 from dotenv import load_dotenv
 
@@ -66,13 +66,18 @@ async def get_recommendations(req: RecommendationRequest):
             # Fetch weather for each recommendation
             weather = get_weather(place.get("latitude", 0), place.get("longitude", 0))
             
+            
+            # Fetch dynamic image based on place name and category
+            vibe_category = place["tags"]["vibe"][0] if place.get("tags", {}).get("vibe") else "Chill"
+            image_url = get_place_image(place["name"], vibe_category)
+            
             recommendations.append({
                 "id": str(place.get("id", place["name"])),
                 "name": place["name"],
                 "summary": place["description"][:120] + "...",
                 "score": score_data["total_score"],
                 "tags": place["tags"]["vibe"] + place["tags"]["who"],
-                "image_url": place.get("image_url", "https://images.unsplash.com/photo-1596422846543-75c6fc197f07"),
+                "image_url": image_url,
                 "lat": place.get("latitude", 0),
                 "lng": place.get("longitude", 0),
                 "rating": place.get("rating", 4.0),
@@ -100,6 +105,10 @@ async def get_place_details(place_id: str):
     vibes_str = ", ".join(place.get("tags", {}).get("vibe", ["pleasant"]))
     ai_summary = generate_ai_summary(place["name"], vibes_str, weather.get("condition", "clear"))
     
+    # Fetch dynamic image based on place name and category
+    vibe_category = place.get("tags", {}).get("vibe", ["Chill"])[0]
+    image_url = get_place_image(place["name"], vibe_category)
+
     return {
         "id": str(place.get("id", place["name"])),
         "name": place["name"],
@@ -109,7 +118,7 @@ async def get_place_details(place_id: str):
         "weather": weather,
         "nearby_hotels": get_nearby_hotels(place["name"], 0),
         "nearby_places": get_nearby_attractions(place["latitude"], place["longitude"], place["name"]),
-        "image_url": place.get("image_url", "https://images.unsplash.com/photo-1596422846543-75c6fc197f07"),
+        "image_url": image_url,
         "rating": place.get("rating", 4.0),
         "location": {
             "lat": place.get("latitude", 0),

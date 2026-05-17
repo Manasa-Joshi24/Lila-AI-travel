@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Navbar } from './components/Navbar';
 import { EmotionPicker } from './components/EmotionPicker';
-import { DestinationCard } from './components/DestinationCard';
 import { OnboardingFlow } from './components/OnboardingFlow';
 import { SuggestionPage } from './components/SuggestionPage';
 import { DetailsPage } from './components/DetailsPage';
@@ -25,7 +24,11 @@ export default function App() {
   const handleOnboardingComplete = async (payload: any) => {
     console.log('Final Preference Payload:', payload);
     setIsLoading(true);
-    const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+    const isLocal = window.location.hostname === 'localhost' || 
+                   window.location.hostname === '127.0.0.1' || 
+                   window.location.hostname.startsWith('192.168.') || 
+                   window.location.hostname.startsWith('10.');
+    const API_BASE = import.meta.env.VITE_API_URL || (isLocal ? `http://${window.location.hostname}:8000` : '');
     try {
       const response = await fetch(`${API_BASE}/api/recommendations`, {
         method: 'POST',
@@ -186,24 +189,7 @@ export default function App() {
             </div>
           </section>
 
-          {/* Featured Destinations */}
-          <section id="featured-destinations">
-            <div className="flex items-end justify-between mb-10">
-              <div>
-                <span className="text-primary font-bold text-xs uppercase tracking-widest mb-2 block">Curation</span>
-                <h2 className="font-display font-bold text-4xl">Featured Experiences</h2>
-              </div>
-              <button className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-on-surface/60 hover:text-primary transition-colors">
-                View All <ChevronRight size={16} />
-              </button>
-            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {destinations.map((dest, idx) => (
-                <DestinationCard key={dest.id} destination={dest} index={idx} />
-              ))}
-            </div>
-          </section>
 
           {/* Social Proof / Quote */}
           <section className="mt-32 py-20 border-y border-white/5 text-center">

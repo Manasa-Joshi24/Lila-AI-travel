@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronLeft, ChevronRight, Check, Users, User, Heart, UserGroup, Clock, Calendar, Sun, Landmark, Compass, Wallet, MapPin, Sparkles, Coffee, CloudRain, Users2, Moon, Utensils } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Check, Users, User, Heart, UserGroup, Clock, Calendar, Sun, Landmark, Compass, Wallet, MapPin, Sparkles } from 'lucide-react';
 
 interface OnboardingFlowProps {
   onComplete: (data: any) => void;
@@ -15,15 +15,6 @@ const STEPS = [
   { id: 'range', title: 'How far do you want to go?', subtitle: 'Define your boundaries. Let us curate the perfect escape within your preferred radius.' },
 ];
 
-const EXTRAS = [
-  { id: 'night', label: 'Night Owl', icon: <Moon size={14} /> },
-  { id: 'day', label: 'Day Time', icon: <Sun size={14} /> },
-  { id: 'outdoor', label: 'Outdoor Focus', icon: <Compass size={14} /> },
-  { id: 'indoor', label: 'Indoor Haven', icon: <Coffee size={14} /> },
-  { id: 'food', label: 'Foodie Focused', icon: <Utensils size={14} /> },
-  { id: 'rain', label: 'Rain-friendly', icon: <CloudRain size={14} /> },
-  { id: 'crowd', label: 'Low Crowds', icon: <Users2 size={14} /> },
-];
 
 export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ onComplete, onBack }) => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -33,7 +24,6 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ onComplete, onBa
     vibes: [] as string[],
     budget: '',
     range: '',
-    extras: [] as string[],
   });
 
   const nextStep = () => {
@@ -216,7 +206,7 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ onComplete, onBa
       </header>
 
       {/* Main Content */}
-      <main className="flex-grow pt-32 pb-32 px-6">
+      <main className="pt-32 pb-8 px-6">
         <div className="max-w-5xl mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
@@ -237,36 +227,14 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ onComplete, onBa
 
               {renderStepContent()}
 
-              {/* Optional Extras - Only show on relevant steps or all? */}
-              <div className="mt-16 pt-8 border-t border-white/5">
-                <div className="flex items-center gap-2 mb-6">
-                  <Sparkles size={16} className="text-primary" />
-                  <h3 className="text-sm font-bold uppercase tracking-widest">Fine-tune the vibe <span className="text-on-surface/40 font-normal">(Optional)</span></h3>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  {EXTRAS.map(extra => (
-                    <button
-                      key={extra.id}
-                      onClick={() => toggleSelection('extras', extra.id, true)}
-                      className={`flex items-center gap-2 px-5 py-2.5 rounded-full border text-xs font-bold uppercase tracking-widest transition-all ${
-                        selections.extras.includes(extra.id)
-                          ? 'bg-primary/20 border-primary text-primary'
-                          : 'border-white/10 text-on-surface/60 hover:border-white/30'
-                      }`}
-                    >
-                      {extra.icon}
-                      {extra.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
+
             </motion.div>
           </AnimatePresence>
         </div>
       </main>
 
       {/* Footer Nav */}
-      <footer className="fixed bottom-0 left-0 right-0 z-50 bg-background/50 backdrop-blur-xl border-t border-white/5">
+      <footer className="w-full border-t border-white/5 mt-4 z-50">
         <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
           <button 
             onClick={onBack}
@@ -278,7 +246,7 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ onComplete, onBa
           <button
             onClick={nextStep}
             disabled={!isStepValid()}
-            className={`flex items-center gap-3 px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest transition-all ${
+            className={`flex items-center gap-2 md:gap-3 px-6 py-3 md:px-10 md:py-4 rounded-full font-bold text-xs md:text-sm uppercase tracking-widest transition-all ${
               isStepValid()
                 ? 'bg-primary text-background shadow-[0_0_30px_rgba(210,187,255,0.3)] hover:shadow-[0_0_40px_rgba(210,187,255,0.5)]'
                 : 'bg-white/5 text-on-surface/20 cursor-not-allowed'

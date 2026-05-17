@@ -8,21 +8,50 @@ interface SuggestionPageProps {
   onSelect: (place: any) => void;
 }
 
+const ImageWithSkeleton = ({ src, alt }: { src: string; alt: string }) => {
+  const [loaded, setLoaded] = React.useState(false);
+  const [error, setError] = React.useState(false);
+  
+  const fallbackSrc = "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&q=80&w=1600";
+
+  return (
+    <>
+      {!loaded && (
+        <div className="absolute inset-0 z-0 bg-white/5 animate-pulse" />
+      )}
+      <img 
+        src={error ? fallbackSrc : src} 
+        alt={alt} 
+        loading="lazy"
+        onLoad={() => setLoaded(true)}
+        onError={() => {
+          if (!error) {
+            setError(true);
+          } else {
+            setLoaded(true); // Even fallback failed, just show it and stop pulsing
+          }
+        }}
+        className={`w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+      />
+    </>
+  );
+};
+
 export const SuggestionPage: React.FC<SuggestionPageProps> = ({ recommendations, onBack, onSelect }) => {
   return (
     <div className="min-h-screen bg-background text-on-surface flex flex-col font-sans pt-32 pb-20">
       <div className="max-w-7xl mx-auto px-6 w-full">
         {/* Header */}
-        <div className="flex items-center justify-between mb-12">
+        <div className="flex flex-col-reverse md:flex-row items-start md:items-center justify-between gap-6 mb-12">
           <button 
             onClick={onBack}
-            className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-on-surface/60 hover:text-primary transition-colors"
+            className="flex items-center gap-2 text-xs md:text-sm font-bold uppercase tracking-widest text-on-surface/60 hover:text-primary transition-colors"
           >
             <ArrowLeft size={18} /> Modify Preferences
           </button>
-          <div className="text-right">
-            <h1 className="text-4xl md:text-5xl font-display font-bold">Your Curated Narrative</h1>
-            <p className="text-on-surface/50 mt-2">Discovering the scenes that resonate with your journey.</p>
+          <div className="text-left md:text-right">
+            <h1 className="text-3xl md:text-5xl font-display font-bold">Your Curated Narrative</h1>
+            <p className="text-sm md:text-base text-on-surface/50 mt-2">Discovering the scenes that resonate with your journey.</p>
           </div>
         </div>
 
@@ -40,11 +69,7 @@ export const SuggestionPage: React.FC<SuggestionPageProps> = ({ recommendations,
               >
                 {/* Image Container */}
                 <div className="relative aspect-[16/10] overflow-hidden">
-                  <img 
-                    src={rec.image_url} 
-                    alt={rec.name} 
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                  />
+                  <ImageWithSkeleton src={rec.image_url} alt={rec.name} />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
                   
                   {/* Score Badge */}
