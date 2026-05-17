@@ -118,7 +118,11 @@ export const SuggestionPage: React.FC<SuggestionPageProps> = ({ recommendations,
                     <div className="flex items-center justify-between pt-6 border-t border-white/5">
                         <div className="flex items-center gap-2 text-on-surface/50">
                           <MapPin size={14} />
-                          <span className="text-xs font-medium">{rec.distance_km ?? 0}km away</span>
+                          <span className="text-xs font-medium">
+                            {rec.distance_km !== null && rec.distance_km !== undefined
+                              ? `${rec.distance_km}km away`
+                              : 'Distance unavailable'}
+                          </span>
                         </div>
                         <div className="flex items-center gap-1 text-xs font-bold uppercase tracking-widest text-primary">
                           Details <ChevronRight size={14} />

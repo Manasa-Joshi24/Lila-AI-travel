@@ -7,6 +7,7 @@ import logging
 from rag.retriever import LilaRetriever, calculate_weighted_score, haversine
 from services.enrichment import get_weather, get_nearby_hotels, get_nearby_attractions, get_place_image
 from services.ai import generate_ai_summary
+from services.coordinates import get_place_coordinates
 from dotenv import load_dotenv
 
 # Setup logging
@@ -40,6 +41,8 @@ class RecommendationRequest(BaseModel):
     budget: str = "Moderate"
     range: str = "Local BLR"
     extras: List[str] = Field(default_factory=list)
+    latitude: Optional[float] = None
+    longitude: Optional[float] = None
 
 @app.get("/")
 async def root():
@@ -55,17 +58,34 @@ async def get_recommendations(req: RecommendationRequest):
         # 2. Retrieve candidates
         candidates = retriever.retrieve(query, k=15)
         
+        # Get user coordinates from payload, fallback to Bengaluru center if none
+        user_lat = req.latitude
+        user_lng = req.longitude
+        if user_lat is None or user_lng is None:
+            user_lat = 12.9716
+            user_lng = 77.5946
+            logger.info("User coordinates not provided in request. Falling back to Bengaluru center: 12.9716, 77.5946")
+        else:
+            logger.info(f"Using user geolocated coordinates: {user_lat}, {user_lng}")
+            
         recommendations = []
         for item in candidates:
             place = item["place"]
-            # Map stuff removed - distance set to 0 or ignored
-            dist = 0
+            
+            # Fetch coordinates dynamically (combining in-memory cache and dataset fallbacks)
+            place_lat, place_lng = get_place_coordinates(
+                place["name"], 
+                fallback_lat=place.get("latitude"), 
+                fallback_lng=place.get("longitude")
+            )
+            
+            # Calculate distance using Haversine formula
+            dist = haversine(user_lat, user_lng, place_lat, place_lng)
             
             score_data = calculate_weighted_score(place, req.dict(), item["semantic_score"], dist)
             
-            # Fetch weather for each recommendation
-            weather = get_weather(place.get("latitude", 0), place.get("longitude", 0))
-            
+            # Fetch weather for each recommendation using place coordinates
+            weather = get_weather(place_lat, place_lng)
             
             # Fetch dynamic image based on place name and category
             vibe_category = place["tags"]["vibe"][0] if place.get("tags", {}).get("vibe") else "Chill"
@@ -78,12 +98,12 @@ async def get_recommendations(req: RecommendationRequest):
                 "score": score_data["total_score"],
                 "tags": place["tags"]["vibe"] + place["tags"]["who"],
                 "image_url": image_url,
-                "lat": place.get("latitude", 0),
-                "lng": place.get("longitude", 0),
+                "lat": place_lat,
+                "lng": place_lng,
                 "rating": place.get("rating", 4.0),
                 "weather": weather,
                 "budget_level": place.get("budget", {}).get("level", "Moderate"),
-                "distance_km": round(dist, 1)
+                "distance_km": round(dist, 1) if dist is not None else None
             })
         
         recommendations.sort(key=lambda x: x["score"], reverse=True)
@@ -99,7 +119,14 @@ async def get_place_details(place_id: str):
     if not place:
         raise HTTPException(status_code=404, detail="Place not found")
         
-    weather = get_weather(place["latitude"], place["longitude"])
+    # Get place coordinates from get_place_coordinates
+    place_lat, place_lng = get_place_coordinates(
+        place["name"],
+        fallback_lat=place.get("latitude"),
+        fallback_lng=place.get("longitude")
+    )
+    
+    weather = get_weather(place_lat, place_lng)
     
     # Generate AI summary
     vibes_str = ", ".join(place.get("tags", {}).get("vibe", ["pleasant"]))
@@ -117,12 +144,12 @@ async def get_place_details(place_id: str):
         "highlights": place.get("highlights", []),
         "weather": weather,
         "nearby_hotels": get_nearby_hotels(place["name"], 0),
-        "nearby_places": get_nearby_attractions(place["latitude"], place["longitude"], place["name"]),
+        "nearby_places": get_nearby_attractions(place_lat, place_lng, place["name"]),
         "image_url": image_url,
         "rating": place.get("rating", 4.0),
         "location": {
-            "lat": place.get("latitude", 0),
-            "lng": place.get("longitude", 0),
+            "lat": place_lat,
+            "lng": place_lng,
             "address": place.get("address", "Bengaluru, India")
         },
         "budget": place.get("budget", {"level": "Moderate", "range": "N/A"}),

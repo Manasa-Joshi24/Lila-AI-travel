@@ -24,6 +24,37 @@ export default function App() {
   const handleOnboardingComplete = async (payload: any) => {
     console.log('Final Preference Payload:', payload);
     setIsLoading(true);
+
+    // Get user current coordinates via browser Geolocation API
+    let latitude = 12.9716;
+    let longitude = 77.5946;
+    
+    try {
+      const position = await new Promise<GeolocationPosition>((resolve, reject) => {
+        if (!navigator.geolocation) {
+          reject(new Error('Geolocation not supported'));
+          return;
+        }
+        navigator.geolocation.getCurrentPosition(resolve, reject, {
+          enableHighAccuracy: true,
+          timeout: 5000,
+          maximumAge: 0,
+        });
+      });
+      latitude = position.coords.latitude;
+      longitude = position.coords.longitude;
+      console.log('User coordinates obtained:', latitude, longitude);
+    } catch (err: any) {
+      console.warn('Geolocation failed or permission denied, using default coordinates (Bengaluru):', err.message);
+      // fallback values already initialized to Bengaluru center
+    }
+
+    const payloadWithCoords = {
+      ...payload,
+      latitude,
+      longitude,
+    };
+
     const isLocal = window.location.hostname === 'localhost' || 
                    window.location.hostname === '127.0.0.1' || 
                    window.location.hostname.startsWith('192.168.') || 
@@ -33,7 +64,7 @@ export default function App() {
       const response = await fetch(`${API_BASE}/api/recommendations`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(payloadWithCoords),
       });
       if (!response.ok) throw new Error(`Server error: ${response.status}`);
       const data = await response.json();
